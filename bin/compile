@@ -6,7 +6,7 @@ indent() {
   sed 's/^/       /'
 }
 
-ELASTIC_APM_VERSION=${ELASTIC_APM_VERSION:-8.15.0}
+ELASTIC_APM_VERSION=${ELASTIC_APM_VERSION:-7.10.2}
 
 BUILDPACK_PATH=$(dirname $(readlink -f $0))/../
 
