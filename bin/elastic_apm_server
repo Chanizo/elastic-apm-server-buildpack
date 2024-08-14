@@ -4,7 +4,7 @@
 eval $(echo $ELASTICSEARCH_URL | sed -r 's/(https?:\/\/)(([^:]*):([^:]*)@){0,1}(.*)/url=\1\5 \nuser=\3 \npass=\4/')
 
 # Set the default version if not provided
-APM_SERVER_VERSION=${APM_SERVER_VERSION:-8.15.0}
+APM_SERVER_VERSION=${APM_SERVER_VERSION:-7.10.2}
 APP_PATH=$(dirname $(readlink -f $0))/../
 
 # Export parsed values for Elastic APM Server configuration
