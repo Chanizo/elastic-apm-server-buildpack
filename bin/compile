@@ -1,0 +1,25 @@
+#!/bin/bash
+
+BUILD_DIR=$1
+
+indent() {
+  sed 's/^/       /'
+}
+
+ELASTIC_APM_VERSION=${ELASTIC_APM_VERSION:-8.15.0}
+
+BUILDPACK_PATH=$(dirname $(readlink -f $0))/../
+
+echo "Downloading Elastic APM Server version $ELASTIC_APM_VERSION" | indent
+
+URL=curl -L -O https://artifacts.elastic.co/downloads/apm-server/apm-server-8.15.0-linux-x86_64.tar.gz
+curl $URL -L --silent -o /tmp/elastic_apm_server.tar.gz
+
+echo "Extracting Elastic APM Server" | indent
+mkdir -p $BUILD_DIR/elastic_apm_server
+tar -xf /tmp/elastic_apm_server.tar.gz -C $BUILD_DIR/elastic_apm_server
+
+mkdir -p $BUILD_DIR/bin
+cp $BUILDPACK_PATH/bin/elastic_apm_server $BUILD_DIR/bin/elastic_apm_server
+
+echo "Done" | indent
