@@ -24,4 +24,4 @@ unset JAVA_OPTS
 unset JAVA_TOOL_OPTIONS
 
 # Start Elastic APM Server with the passed arguments
-$APP_PATH/elastic_apm_server/apm-server-$APM_SERVER_VERSION-linux-x86_64/apm_server $*
+$APP_PATH/elastic_apm_server/apm-server-$APM_SERVER_VERSION-linux-x86_64/apm-server $*
